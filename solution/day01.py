@@ -1,4 +1,5 @@
 from typing import List
+import numpy as np
 
 def read_input():
     with open("day01_input.txt") as file:
@@ -26,7 +27,6 @@ def calculate_distance_between_two_lists(list1:List, list2:List):
 
     return distances
 
-
 def test_calculate_distance_between_two_lists():
     list1 = [3, 4, 2, 1, 3, 3]
     list2 = [4, 3, 5, 3, 9, 3]
@@ -42,14 +42,6 @@ test_calculate_distance_between_two_lists()
 calculate_distance_between_two_lists(list1,list2)
 
 # PART 2
-
-from typing import List
-
-from solution.day01 import read_input
-import numpy as np
-
-list1, list2 = read_input()
-
 def calculate_similarity_score(list1:List, list2:List):
     total_similarity_score = 0
 
@@ -62,6 +54,7 @@ def calculate_similarity_score(list1:List, list2:List):
 
     print(total_similarity_score)
     return total_similarity_score
+
 def test_calculate_similarity_score():
     list1 = [3, 4, 2, 1, 3, 3]
     list2 = [4, 3, 5, 3, 9, 3]
