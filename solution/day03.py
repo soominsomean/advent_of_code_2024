@@ -15,8 +15,12 @@ def part1(input_list:List[str]):
     total_sum = 0
     for input in input_list:
         pattern_to_capture_mul_int = r"mul\(\d+,\d+\)"
-        pattern_to_capture_int_only = r"mul\((\d+),(\d+)\)"
+        pattern_to_capture_int_only = r"mul\((\d+),(\d+)\)" # () extract things inside ()
         mul_matches = re.findall(pattern_to_capture_mul_int, input)
+        # The map() function is used to apply a given function to every item of an iterable map(func, iterable)
+        # By default map function returns map object (iterator)
+
+        # QUESTION: Difference between map and for loop and applying function?
         int_only = [tuple(map(int, re.findall(pattern_to_capture_int_only, mul)[0])) for mul in mul_matches]
 
         result = sum(x * y for x, y in int_only)
@@ -46,7 +50,7 @@ def part2(examples):
             start_index = 0
             write = True
 
-        # What is the smart way to do this? instead of double for loop, and set the condiion index==ind?
+        # QUESTION: What is the smart way to do this? instead of double for loop, and set the condiion index==ind?
         for index in range(start_index, len(splitted)):
             if write and (index not in set([*do_index, *dont_index])):
                 index_to_print.append(index)
