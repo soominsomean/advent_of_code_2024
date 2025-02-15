@@ -46,6 +46,7 @@ def part2(examples):
             start_index = 0
             write = True
 
+        # What is the smart way to do this? instead of double for loop, and set the condiion index==ind?
         for index in range(start_index, len(splitted)):
             if write and (index not in set([*do_index, *dont_index])):
                 index_to_print.append(index)
